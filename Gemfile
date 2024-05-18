@@ -70,4 +70,4 @@ gem 'devise'
 
 gem 'omniauth'
 
-#gem 'eventmachine', '~> 1.2.7'
+gem "tailwindcss-rails", "~> 2.6"
