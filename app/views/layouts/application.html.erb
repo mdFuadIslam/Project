@@ -8,13 +8,165 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.turbo.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <header class = "bg-white">
+      <div class="container mx-auto flex space-x-6 justify-items-start items-center">
+        <!-- hamburger button -->
+        <div class = 'md:hidden'>
+          <button type="button">Click me</button>
+        </div>
+        <!-- hamburger button -->
+
+        <!-- search bar -->
+        <form action="/search" class="max-w-[480px] w-full px-4 mt-6">
+            <div class="relative">
+                <input type="text" name="q" class="w-full border h-12 shadow p-4 rounded-full dark:text-gray-800 dark:border-gray-700 dark:bg-gray-200" placeholder="search">
+                <button type="submit">
+                    <svg class="text-teal-400 h-5 w-5 absolute top-3.5 right-3 fill-current dark:text-teal-300"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                        x="0px" y="0px" viewBox="0 0 56.966 56.966"
+                        style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve">
+                        <path
+                            d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </form>
+        <!-- search bar -->
+        
+        <!-- theme toggler -->
+        <div class = 'w-20'>
+          <button id="dropdownRadioBgHoverButton" data-dropdown-toggle="dropdownRadioBgHover" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Theme
+          </button>
+
+          <!-- Dropdown menu -->
+          <div id="dropdownRadioBgHover" class="z-10 hidden w-48 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600">
+              <ul class="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownRadioBgHoverButton">
+                <li>
+                  <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                      <input id="default-radio-4" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                      <label for="default-radio-4" class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Auto</label>
+                  </div>
+                </li>
+                <li>
+                  <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                      <input checked id="default-radio-5" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                      <label for="default-radio-5" class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Dark</label>
+                  </div>
+                </li>
+                <li>
+                  <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                      <input id="default-radio-6" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                      <label for="default-radio-6" class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Light</label>
+                  </div>
+                </li>
+              </ul>
+          </div>
+        </div>
+        <!-- theme toggler -->
+
+        <!-- lang toggler -->
+        <div>
+          <label for="toggleSix" class="flex items-center cursor-pointer select-none text-dark dark:text-white">
+            <div class="relative toggle-container">
+              <input type="checkbox" id="toggleSix" class="peer sr-only" />
+              <div class="block h-7 rounded-full box"></div>
+              <div class="absolute transition transform translate-x-0 dot left-1.5 top-1 bg-black rounded-full"></div>
+            </div>
+            <span id="toggleText" class="ml-3">EN</span>
+          </label>
+        </div>
+        <!-- lang toggler -->
+      
+        <!-- user menu -->
+        <div>
+          
+          <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName" class="flex items-center text-sm pe-1 font-medium text-gray-900 rounded-full hover:text-blue-600 dark:hover:text-blue-500 md:me-0 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-white" type="button">
+          <span class="sr-only">Open user menu</span>
+          <img class="w-8 h-8 me-2 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo">
+          Bonnie Green
+          <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+          </svg>
+          </button>
+          <!-- Dropdown menu -->
+          <div id="dropdownAvatarName" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+              <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                <div class="font-medium ">Pro User</div>
+                <div class="truncate">name@flowbite.com</div>
+              </div>
+              <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
+                <li>
+                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                </li>
+                <li>
+                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                </li>
+              </ul>
+              <div class="py-2">
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+              </div>
+          </div>
+        </div>
+        <!-- user menu -->
+      </div>
+    </header>
+    <div class="hidden md:block">
+      This div will be displayed as a block-level element on viewports with a width of 1024 pixels or larger, even if there are other conflicting styles.
+    </div>
+    
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     
     <%= yield %>
   </body>
 </html>
+
+<script>
+  const checkbox = document.getElementById('toggleSix');
+  const toggleText = document.getElementById('toggleText');
+
+  checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
+      toggleText.textContent = 'BN';
+    } else {
+      toggleText.textContent = 'EN';
+    }
+  });
+
+  const dropdownButton = document.querySelector('#dropdownAvatarNameButton');
+  const dropdownMenu = document.querySelector('#dropdownAvatarName');
+
+  dropdownButton.addEventListener('click', () => {
+    dropdownMenu.classList.toggle('show');
+  });
+
+  // Optionally, you can add an event listener to hide the dropdown menu when the user clicks outside of it
+  document.addEventListener('click', (event) => {
+    if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+      dropdownMenu.classList.remove('show');
+    }
+  });
+
+  const dropdownRadioBgHoverButton = document.querySelector('#dropdownRadioBgHoverButton');
+  const dropdownRadioBgHover = document.querySelector('#dropdownRadioBgHover');
+
+  dropdownRadioBgHoverButton.addEventListener('click', () => {
+    dropdownRadioBgHover.classList.toggle('show');
+  });
+
+  // Optionally, you can add an event listener to hide the dropdown menu when the user clicks outside of it
+  document.addEventListener('click', (event) => {
+    if (!dropdownRadioBgHoverButton.contains(event.target) && !dropdownRadioBgHover.contains(event.target)) {
+      dropdownRadioBgHover.classList.remove('show');
+    }
+  });
+</script>

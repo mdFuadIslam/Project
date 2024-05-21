@@ -1,0 +1,111 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+body{
+    background-color: rgb(235, 235, 235);
+}
+
+.hidden {
+    display: none;
+  }
+
+.toggle-container {
+    position: relative;
+    width: 4rem;
+    height: 2rem;
+  }
+  
+  .box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    background-color: blue; /* Set the background color to blue */
+  }
+  
+  .dot {
+    position: absolute;
+    top: 0.25rem;
+    left: 0.25rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    background-color: black;
+    transition: transform 0.2s ease;
+  }
+  
+  #toggleSix:checked ~ .dot {
+    transform: translateX(2rem);
+  }
+
+  #dropdownAvatarNameButton {
+    position: relative;
+  }
+
+  #dropdownAvatarName {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 200px;
+    padding: 5px 0;
+    margin: 0;
+    list-style: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    display: none;
+  }
+
+  #dropdownAvatarName.show {
+    display: block;
+    position: absolute;
+    top: calc(50px + 1em);
+    right: 0px;
+  }
+
+  #dropdownRadioBgHoverButton {
+    position: relative;
+  }
+
+  #dropdownRadioBgHover {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 200px;
+    padding: 5px 0;
+    margin: 0;
+    list-style: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    display: none;
+  }
+
+  #dropdownRadioBgHover.show {
+    --dropdown-top: calc(50px + 1em);
+    display: block;
+    position: absolute;
+    top: var(--dropdown-top);
+    right: 250px;
+  }
+
+  @media (max-width: 767.98px) {
+    #dropdownRadioBgHover.show {
+      --dropdown-top: calc(50px + 1em);
+    }
+  }
+
+  @media (max-width: 480.98px) {
+    #dropdownRadioBgHover.show {
+      right: 1em;
+    }
+  }
+

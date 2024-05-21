@@ -71,3 +71,5 @@ gem 'devise'
 gem 'omniauth'
 
 gem "tailwindcss-rails", "~> 2.6"
+
+gem 'jquery-rails'
